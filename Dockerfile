@@ -9,6 +9,6 @@ WORKDIR /app
 
 ENV PORT=9000
 
-#HEALTHCHECK --interval=5s --timeout=2s --retries=1 CMD /bin/bash -c 'set -e; [ "`curl -sSf http://localhost:$PORT`" == "ok" ]'
+HEALTHCHECK --interval=5s --timeout=2s --retries=1 CMD /bin/bash -c 'set -e; curl -s http://localhost:$PORT'
 
 ENTRYPOINT '/app/start.sh'
