@@ -18,7 +18,7 @@ pipeline {
         stage('deploy') {
             steps {
             // Need to configure remote server install (Docker API? ssh?)
-                sh script: 'docker stop app || exit 0', label: 'stop old application'
+                sh script: 'docker kill app || exit 0', label: 'stop old application'
                 sh script: 'docker rm app || exit 0', label: 'remove old application'
                 sh script: 'docker run --detach --rm --name app -p 9000:9000 localhost:5000/app:${BUILD_ID}', label: 'start new application'
             }
