@@ -21,5 +21,6 @@ pipeline {
                 sh script: 'docker run -ti --rm --name app -p 9000:9000 localhost:5000/app:${BUILD_ID}', label: 'start new application'
             }
         }
+
     }
 }
