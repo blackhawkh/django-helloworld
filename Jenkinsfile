@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh script: 'docker build -t localhost:5000/app:${BUILD_ID}', label: 'build docker image'
+                sh script: 'docker build -t localhost:5000/app:${BUILD_ID} .', label: 'build docker image'
             }
         }
         stage('upload') {
